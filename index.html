@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abc & Xyz — Wedding Celebration | January 1, 2027</title>
+  <title>Sachin Syam & Vidya Sahu — Wedding Celebration</title>
 
   <!-- Google Fonts for Editorial Wedding Aesthetic -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,12 +19,12 @@
       --gold-primary: #b89047;
       --gold-light: #e5cf92;
       --gold-dark: #8c6827;
-      --sand-bg: #faf7f2;
+      --pastel-bg: #faf7f2;
       --card-bg: rgba(255, 255, 255, 0.88);
       --text-main: #222220;
       --text-muted: #6b6a65;
       --border-gold: rgba(184, 144, 71, 0.28);
-      --shadow-soft: 0 12px 32px -8px rgba(130, 100, 40, 0.08);
+      --shadow-soft: 0 14px 34px -8px rgba(130, 100, 40, 0.08);
     }
 
     * {
@@ -38,10 +38,11 @@
       scroll-behavior: smooth;
     }
 
+    /* Soft Pastel Pattern Background with Ambient Warm Radial Glows */
     body {
       width: 100%;
       overflow-x: hidden;
-      background-color: var(--sand-bg);
+      background-color: var(--pastel-bg);
       color: var(--text-main);
       font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.6;
@@ -49,11 +50,11 @@
         radial-gradient(ellipse at 15% 15%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
         radial-gradient(ellipse at 85% 35%, rgba(184, 144, 71, 0.10) 0%, transparent 45%),
         radial-gradient(ellipse at 50% 75%, rgba(229, 207, 146, 0.14) 0%, transparent 50%),
-        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0c3.5 12 12 20.5 24 24-12 3.5-20.5 12-24 24-3.5-12-12-20.5-24-24 12-3.5 20.5-12 24-24zm0 20c1.5 5 5 8.5 10 10-5 1.5-8.5 5-10 10-1.5-5-5-8.5-10-10 5-1.5 8.5-5 10-10z' fill='%23b89047' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0c3.5 12 12 20.5 24 24-12 3.5-20.5 12-24 24-3.5-12-12-20.5-24-24 12-3.5 20.5-12 24-24zm0 20c1.5 5 5 8.5 10 10-5 1.5-8.5 5-10 10-1.5-5-5-8.5-10-10 5-1.5 8.5-5 10-10z' fill='%23b89047' fill-opacity='0.045' fill-rule='evenodd'/%3E%3C/svg%3E");
       background-attachment: fixed;
     }
 
-    /* Fixed border frame on desktop only */
+    /* Elegant Stationery Double Border for Desktop Devices */
     @media (min-width: 769px) {
       body::before, body::after {
         content: "";
@@ -71,7 +72,7 @@
       }
     }
 
-    /* Ambient Background Orbs */
+    /* Ambient Warm Orbs */
     .ambient-petals {
       position: fixed;
       top: 0;
@@ -91,13 +92,13 @@
       animation: floatOrb 18s infinite ease-in-out alternate;
     }
 
-    .p1 { width: 220px; height: 220px; top: 5%; left: -30px; }
-    .p2 { width: 200px; height: 200px; top: 60%; right: -30px; animation-duration: 22s; animation-delay: -5s; }
+    .p1 { width: 240px; height: 240px; top: 8%; left: -40px; }
+    .p2 { width: 220px; height: 220px; top: 65%; right: -40px; animation-duration: 22s; animation-delay: -5s; }
 
     @keyframes floatOrb {
       0% { transform: translateY(0) scale(1); opacity: 0.4; }
       50% { transform: translateY(-25px) scale(1.08); opacity: 0.6; }
-      100% { transform: translateY(20px) scale(0.95); opacity: 0.3; }
+      100% { transform: translateY(20px) scale(0.95); opacity: 0.35; }
     }
 
     h1, h2, h3, .font-serif {
@@ -108,7 +109,7 @@
       font-family: 'Pinyon Script', cursive;
     }
 
-    /* Navigation Bar */
+    /* Frosted Glass Navigation Bar */
     nav {
       position: fixed;
       top: 0;
@@ -116,6 +117,7 @@
       z-index: 999;
       background: rgba(250, 247, 242, 0.92);
       backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-gold);
       padding: 0.85rem 1.2rem;
       display: flex;
@@ -131,9 +133,9 @@
     }
 
     nav .logo {
-      font-size: 1.4rem;
+      font-size: 1.1rem;
       font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       color: var(--gold-dark);
       text-decoration: none;
     }
@@ -180,7 +182,7 @@
     .hero-badge {
       text-transform: uppercase;
       letter-spacing: 3px;
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       color: var(--gold-dark);
       margin-bottom: 0.8rem;
       font-weight: 600;
@@ -221,12 +223,13 @@
     }
 
     .hero-date {
-      font-size: clamp(0.9rem, 3.5vw, 1.25rem);
+      font-size: clamp(0.85rem, 3vw, 1.15rem);
       color: var(--text-muted);
       margin-bottom: 2rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      font-weight: 400;
+      font-weight: 500;
+      max-width: 700px;
     }
 
     /* Countdown Timer */
@@ -242,7 +245,8 @@
 
     .countdown-box {
       background: var(--card-bg);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border-gold);
       border-radius: 12px;
       padding: 0.85rem 0.3rem;
@@ -255,7 +259,7 @@
 
     .countdown-num {
       font-size: clamp(1.4rem, 5vw, 2rem);
-      font-weight: 400;
+      font-weight: 500;
       color: var(--gold-dark);
       font-family: 'Cormorant Garamond', serif;
       line-height: 1;
@@ -300,59 +304,54 @@
 
     .divider {
       width: 50px;
-      height: 1px;
+      height: 1.5px;
       background-color: var(--gold-primary);
       margin: 1rem auto 0;
     }
 
-    /* Couple Showcase */
+    /* Couple Cards */
     .couple-container {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.8rem;
     }
 
-    @media (min-width: 650px) {
-      .couple-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-      }
-    }
-
     .couple-card {
       background: var(--card-bg);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border-gold);
       border-radius: 18px;
       overflow: hidden;
       box-shadow: var(--shadow-soft);
       text-align: center;
-      max-width: 420px;
+      max-width: 480px;
       margin: 0 auto;
       width: 100%;
     }
 
     .couple-card img {
       width: 100%;
-      height: 320px;
+      height: 340px;
       object-fit: cover;
       display: block;
     }
 
     .couple-card .info {
-      padding: 1.4rem 1rem;
+      padding: 1.6rem 1.2rem;
     }
 
     .couple-card h3 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 400;
       color: var(--text-main);
+      margin-bottom: 0.6rem;
     }
 
     .couple-card p {
       color: var(--text-muted);
-      font-size: 0.85rem;
-      margin-top: 0.3rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
 
     /* Itinerary Timeline */
@@ -370,7 +369,8 @@
       align-items: flex-start;
       gap: 1rem;
       background: var(--card-bg);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border-gold);
       border-radius: 14px;
       padding: 1.2rem;
@@ -378,7 +378,7 @@
     }
 
     .timeline-icon {
-      background: rgba(184, 144, 71, 0.12);
+      background: rgba(184, 144, 71, 0.15);
       color: var(--gold-dark);
       width: 44px;
       height: 44px;
@@ -415,7 +415,8 @@
     /* Venue Card & Map */
     .venue-box {
       background: var(--card-bg);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border-gold);
       border-radius: 18px;
       overflow: hidden;
@@ -466,7 +467,7 @@
       justify-content: center;
       gap: 0.5rem;
       background: var(--gold-dark);
-      color: #fff;
+      color: #ffffff;
       padding: 0.85rem 1.8rem;
       border-radius: 30px;
       text-decoration: none;
@@ -479,6 +480,7 @@
       max-width: 280px;
       border: none;
       cursor: pointer;
+      box-shadow: 0 4px 14px rgba(140, 104, 39, 0.25);
     }
 
     .btn-gold:hover {
@@ -494,7 +496,7 @@
       display: block;
     }
 
-    /* Photo Gallery */
+    /* Moments Photo Gallery */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -514,6 +516,7 @@
       overflow: hidden;
       aspect-ratio: 4/5;
       border: 1px solid var(--border-gold);
+      box-shadow: var(--shadow-soft);
     }
 
     .gallery-item img {
@@ -524,7 +527,7 @@
       transition: transform 0.5s ease;
     }
 
-    /* Compact Sticky WhatsApp Button */
+    /* Floating WhatsApp Button */
     .wa-sticky {
       position: fixed;
       bottom: 18px;
@@ -540,7 +543,7 @@
       gap: 8px;
       font-weight: 600;
       font-size: 0.82rem;
-      box-shadow: 0 8px 24px -4px rgba(37, 211, 102, 0.45);
+      box-shadow: 0 8px 24px -4px rgba(37, 211, 102, 0.5);
       transition: all 0.3s ease;
     }
 
@@ -553,7 +556,7 @@
       text-align: center;
       padding: 3.5rem 1.2rem 6rem;
       border-top: 1px solid var(--border-gold);
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.6);
       position: relative;
       z-index: 2;
     }
@@ -573,7 +576,7 @@
 </head>
 <body>
 
-  <!-- Ambient Light Orbs -->
+  <!-- Floating Ambient Warm Motifs -->
   <div class="ambient-petals" aria-hidden="true">
     <span class="petal p1"></span>
     <span class="petal p2"></span>
@@ -581,11 +584,12 @@
 
   <!-- Navigation Bar -->
   <nav>
-    <a href="#" class="logo font-serif">A & X</a>
+    <a href="#" class="logo font-serif">SACHIN WEDS VIDYA</a>
     <ul>
       <li><a href="#couple">The Couple</a></li>
       <li><a href="#itinerary">Schedule</a></li>
-      <li><a href="#venue">Venue</a></li>
+      <li><a href="#wedding-venue">Wedding Venue</a></li>
+      <li><a href="#reception-venue">Reception Venue</a></li>
       <li><a href="#gallery">Moments</a></li>
       <li><a href="#rsvp">RSVP</a></li>
     </ul>
@@ -593,20 +597,20 @@
 
   <!-- Hero Section -->
   <header class="hero">
-    <span class="hero-badge" data-aos="fade-down">Together With Their Families</span>
+    <span class="hero-badge" data-aos="fade-down">TOGETHER WITH THEIR FAMILIES</span>
     
     <h1 class="hero-title font-serif" data-aos="zoom-in">
-      <span>Abc</span>
+      <span>Sachin Syam</span>
       <span class="hero-ampersand font-script">&</span>
-      <span>Xyz</span>
+      <span>Vidya Sahu</span>
     </h1>
 
     <p class="hero-invitation-line font-script" data-aos="fade-up">
-      Request the honor of your presence
+      Request the honor of your presence on
     </p>
 
     <div class="hero-date" data-aos="fade-up">
-      January 01, 2027 &bull; Town Hall
+      OCTOBER 20TH, 2026 <br> C KESAVAN MEMORIAL TOWN HALL, KOLLAM
     </div>
 
     <!-- Countdown Timer Grid -->
@@ -616,10 +620,6 @@
       <div class="countdown-box"><div class="countdown-num" id="m">00</div><div class="countdown-lbl">Mins</div></div>
       <div class="countdown-box"><div class="countdown-num" id="s">00</div><div class="countdown-lbl">Secs</div></div>
     </div>
-
-    <a href="#rsvp" class="btn-gold" data-aos="fade-up">
-      <i data-lucide="mail"></i> Confirm Presence
-    </a>
   </header>
 
   <!-- The Couple Section -->
@@ -631,21 +631,11 @@
     </div>
 
     <div class="couple-container">
-      <!-- Groom Card -->
       <div class="couple-card" data-aos="fade-up">
-        <img src="https://picsum.photos/id/1062/700/900" alt="Groom portrait" />
+        <img src="images/bng.jpeg" alt="Sachin & Vidya portrait" />
         <div class="info">
-          <h3>Abc</h3>
-          <p>Son of Mr. & Mrs. Groom Family</p>
-        </div>
-      </div>
-
-      <!-- Bride Card -->
-      <div class="couple-card" data-aos="fade-up">
-        <img src="https://picsum.photos/id/64/700/900" alt="Bride portrait" />
-        <div class="info">
-          <h3>Xyz</h3>
-          <p>Daughter of Mr. & Mrs. Bride Family</p>
+          <h3>Sachin Syam & Vidya Sahu</h3>
+          <p>Together with their parents, families, and loved ones, joyfully invite you to share in their celebration of love.</p>
         </div>
       </div>
     </div>
@@ -663,34 +653,25 @@
       <div class="timeline-item" data-aos="fade-up">
         <div class="timeline-icon"><i data-lucide="sparkles"></i></div>
         <div class="timeline-content">
-          <div class="timeline-time">10:00 AM – 11:30 AM</div>
+          <div class="timeline-time">OCT 20TH 2026, 11:00 AM – 11:40 AM</div>
           <h4>The Wedding Ceremony</h4>
-          <p>The auspicious Muhurtham and exchange of garlands at Town Hall Main Auditorium.</p>
+          <p>The auspicious Muhurtham and exchange of garlands at C Kesavan Memorial Town Hall, Kollam.</p>
         </div>
       </div>
 
       <div class="timeline-item" data-aos="fade-up">
         <div class="timeline-icon"><i data-lucide="utensils"></i></div>
         <div class="timeline-content">
-          <div class="timeline-time">12:00 PM Onwards</div>
-          <h4>Grand Wedding Feast</h4>
-          <p>Traditional banquet lunch arranged for our esteemed guests and family members.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item" data-aos="fade-up">
-        <div class="timeline-icon"><i data-lucide="music"></i></div>
-        <div class="timeline-content">
-          <div class="timeline-time">05:30 PM Onwards</div>
-          <h4>Evening Reception & Toast</h4>
-          <p>An evening filled with music, photographs, and celebration with the newlyweds.</p>
+          <div class="timeline-time">OCT 21ST 2026, 04:00 PM – 08:00 PM</div>
+          <h4>Wedding Reception</h4>
+          <p>We are delighted to host our wedding reception the very next day at Izyan Convention Centre, Puthenkulam.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Venue & Directions Section -->
-  <section id="venue">
+  <!-- Wedding Venue & Directions Section -->
+  <section id="wedding-venue">
     <div class="section-header" data-aos="fade-up">
       <span class="section-subtitle font-script">Location Details</span>
       <h2 class="section-title">The Wedding Venue</h2>
@@ -699,19 +680,46 @@
 
     <div class="venue-box" data-aos="fade-up">
       <div class="venue-info">
-        <span class="timeline-time">Venue Location</span>
-        <h3>Town Hall</h3>
+        <h3>C Kesavan Memorial Town Hall</h3>
         <p class="venue-address">
-          Main Hall Auditorium, Central Junction, City Center.<br>
-          Valet parking & guest assistance available at the main gate.
+          VHJX+W9F, NH 66 - Camp Railway Crossing, Karbala, Kollam, Kerala 691001<br>
         </p>
-        <a href="https://maps.google.com/?q=Town+Hall" target="_blank" class="btn-gold">
+        <a href="https://maps.google.com/maps?daddr=8.8817197,76.5983152" target="_blank" class="btn-gold">
           <i data-lucide="map-pin"></i> Open In Google Maps
         </a>
       </div>
       <div class="venue-map">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15757.771960226499!2d76.657519!3d8.81427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwNDgnNTEuNCJOIDc2wrAzOScyNy4xIkU!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.9780316935476!2d76.59570707501709!3d8.881634091173968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05fcf45668118b%3A0x52d133059315b162!2sC.Keshavan%20Memorial%20Town%20Hall!5e0!3m2!1sen!2sin!4v1788804274685!5m2!1sen!2sin" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reception Venue & Directions Section -->
+  <section id="reception-venue">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-subtitle font-script">Celebration Details</span>
+      <h2 class="section-title">The Reception Venue</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="venue-box" data-aos="fade-up">
+      <div class="venue-info">
+        <h3>Izyan Convention Centre</h3>
+        <p class="venue-address">
+          Puthenkulam, Parippally, Kerala 691302<br>
+        </p>
+        <a href="https://maps.google.com/maps?daddr=8.811291,76.717529" target="_blank" class="btn-gold">
+          <i data-lucide="map-pin"></i> Open In Google Maps
+        </a>
+      </div>
+      <div class="venue-map">
+        <!-- Accurate map embed centered on Izyan Convention Centre coordinates -->
+        <iframe 
+          src="https://maps.google.com/maps?q=8.811291,76.717529&hl=en&z=15&output=embed" 
           allowfullscreen="" 
           loading="lazy">
         </iframe>
@@ -723,22 +731,21 @@
   <section id="gallery">
     <div class="section-header" data-aos="fade-up">
       <span class="section-subtitle font-script">Captured Memories</span>
-      <h2 class="section-title">Our Moments</h2>
       <div class="divider"></div>
     </div>
 
     <div class="gallery-grid">
       <div class="gallery-item" data-aos="fade-up">
-        <img src="https://picsum.photos/id/1025/600/750" alt="Moment 1">
+        <img src="images/p1.jpeg" alt="Moment 1">
       </div>
       <div class="gallery-item" data-aos="fade-up">
-        <img src="https://picsum.photos/id/338/600/750" alt="Moment 2">
+        <img src="images/p2.jpeg" alt="Moment 2">
       </div>
       <div class="gallery-item" data-aos="fade-up">
-        <img src="https://picsum.photos/id/399/600/750" alt="Moment 3">
+        <img src="images/p3.jpeg" alt="Moment 3">
       </div>
       <div class="gallery-item" data-aos="fade-up">
-        <img src="https://picsum.photos/id/838/600/750" alt="Moment 4">
+        <img src="images/p4.jpeg" alt="Moment 4">
       </div>
     </div>
   </section>
@@ -747,16 +754,10 @@
   <section id="rsvp" style="text-align: center; max-width: 580px;">
     <div class="section-header" data-aos="fade-up">
       <span class="section-subtitle font-script">Warm Regards</span>
-      <h2 class="section-title">Are You Attending?</h2>
       <div class="divider"></div>
-      <p style="color: var(--text-muted); margin-top: 1.2rem; font-size: 0.9rem;">
-        Your presence and prayers will make our celebration truly memorable. Please let us know if you can join us by confirming on WhatsApp.
+      <p style="color: var(--text-muted); margin-top: 1.2rem; font-size: 0.95rem; line-height: 1.7;">
+        <b>Your presence and prayers will make our celebration truly memorable. Kindly avoid all kinds of gifts and presentations.</b>
       </p>
-      <div style="margin-top: 1.8rem; display: flex; justify-content: center;">
-        <a href="https://wa.me/91XXXXXXXXXX?text=Hi!%20I%20am%20delighted%20to%20confirm%20my%20attendance%20for%20the%20wedding%20of%20Abc%20and%20Xyz%20on%2001-01-2027." class="btn-gold" target="_blank">
-          <i data-lucide="message-circle"></i> Send RSVP
-        </a>
-      </div>
     </div>
   </section>
 
@@ -764,11 +765,10 @@
   <footer>
     <div class="quote font-script">"Forever begins here"</div>
     <p>With blessings from parents, relatives & friends.</p>
-    <p style="margin-top: 0.4rem; font-size: 0.72rem;">Abc & Xyz &bull; 01-01-2027 &bull; Town Hall</p>
   </footer>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/91XXXXXXXXXX?text=Hi!%20I%20would%20love%20to%20RSVP%20for%20the%20wedding%20of%20Abc%20and%20Xyz." class="wa-sticky" target="_blank">
+  <a href="https://wa.me/919916834746?text=Hi%20Sachin%20%26%20Vidya!%20Congratulations!%20I%20am%20happy%20to%20RSVP%20for%20the%20wedding." class="wa-sticky" target="_blank">
     <i data-lucide="message-circle"></i>
     <span>RSVP</span>
   </a>
@@ -778,7 +778,7 @@
   <script>
     lucide.createIcons();
 
-    // Re-enabled AOS on phones with comfortable offset
+    // AOS initialization with offset
     AOS.init({
       duration: 700,
       once: true,
@@ -786,13 +786,12 @@
       easing: 'ease-out-quad'
     });
 
-    // Recalculate positions after images and fonts load so nothing stays hidden
     window.addEventListener('load', function() {
       AOS.refresh();
     });
 
-    // Countdown Timer
-    const eventTime = new Date("January 1, 2027 10:00:00").getTime();
+    // Countdown Timer set precisely to October 20, 2026, 11:00 AM IST
+    const eventTime = new Date("October 20, 2026 11:00:00 GMT+0530").getTime();
     function refreshCountdown() {
       const now = new Date().getTime();
       const delta = eventTime - now;
@@ -802,6 +801,11 @@
         document.getElementById("h").innerText = String(Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
         document.getElementById("m").innerText = String(Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
         document.getElementById("s").innerText = String(Math.floor((delta % (1000 * 60)) / 1000)).padStart(2, '0');
+      } else {
+        document.getElementById("d").innerText = "00";
+        document.getElementById("h").innerText = "00";
+        document.getElementById("m").innerText = "00";
+        document.getElementById("s").innerText = "00";
       }
     }
     setInterval(refreshCountdown, 1000);
