@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Primary Title -->
-<title>Wedding Invitation | Sachin & Vidya</title>
-<meta property="og:image" content="https://github.com/sachinsyam/sac-wed/blob/main/bng.jpeg" />
-
+  <title>Wedding Invitation | Sachin & Vidya</title>
+  <meta property="og:image" content="https://github.com/sachinsyam/sac-wed/blob/main/bng.jpeg" />
 
   <!-- Google Fonts for Editorial Wedding Aesthetic -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -555,6 +554,44 @@
       transform: translateY(-2px);
     }
 
+    /* Floating Music Toggle Button */
+    .music-btn {
+      position: fixed;
+      bottom: 18px;
+      left: 18px;
+      z-index: 1000;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border-gold);
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--gold-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.3s ease;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.08);
+      background: #ffffff;
+    }
+
+    .music-btn.playing {
+      color: var(--gold-primary);
+      border-color: var(--gold-primary);
+      animation: gentleRotate 6s linear infinite;
+    }
+
+    @keyframes gentleRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
     footer {
       text-align: center;
       padding: 3.5rem 1.2rem 6rem;
@@ -578,6 +615,11 @@
   </style>
 </head>
 <body>
+
+  <!-- Background Music Audio Element -->
+  <audio id="weddingBgm" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
 
   <!-- Floating Ambient Warm Motifs -->
   <div class="ambient-petals" aria-hidden="true">
@@ -615,7 +657,7 @@
     <div class="hero-date" data-aos="fade-up">
       OCTOBER 20TH, 2026 <br> C KESAVAN MEMORIAL TOWN HALL, KOLLAM
     </div>
-<span class="hero-invitation-line font-script" data-aos="fade-up">The wedding countdown is officially on</span>
+
     <!-- Countdown Timer Grid -->
     <div class="countdown-grid" data-aos="fade-up">
       <div class="countdown-box"><div class="countdown-num" id="d">00</div><div class="countdown-lbl">Days</div></div>
@@ -734,6 +776,7 @@
   <section id="gallery">
     <div class="section-header" data-aos="fade-up">
       <span class="section-subtitle font-script">Captured Memories</span>
+      <h2 class="section-title">Our Moments</h2>
       <div class="divider"></div>
     </div>
 
@@ -770,6 +813,11 @@
     <p>With blessings from parents, relatives & friends.</p>
   </footer>
 
+  <!-- Floating Music Toggle Button -->
+  <button id="musicToggle" class="music-btn" aria-label="Toggle Background Music">
+    <i data-lucide="music" id="musicIcon"></i>
+  </button>
+
   <!-- Floating WhatsApp Button -->
   <a href="https://wa.me/919916834746?text=Hi" class="wa-sticky" target="_blank">
     <i data-lucide="message-circle"></i>
@@ -780,6 +828,55 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     lucide.createIcons();
+
+    // Background Music Controls
+    const bgm = document.getElementById("weddingBgm");
+    const musicBtn = document.getElementById("musicToggle");
+    const musicIcon = document.getElementById("musicIcon");
+    let isPlaying = false;
+
+    function playAudio() {
+      if (isPlaying) return;
+      bgm.play().then(() => {
+        isPlaying = true;
+        musicBtn.classList.add("playing");
+        musicIcon.setAttribute("data-lucide", "music");
+        lucide.createIcons();
+      }).catch(err => {
+        console.log("Audio waiting for user gesture:", err);
+      });
+    }
+
+    function pauseAudio() {
+      bgm.pause();
+      isPlaying = false;
+      musicBtn.classList.remove("playing");
+      musicIcon.setAttribute("data-lucide", "volume-x");
+      lucide.createIcons();
+    }
+
+    function toggleMusic(e) {
+      if (e) e.stopPropagation();
+      if (isPlaying) {
+        pauseAudio();
+      } else {
+        playAudio();
+      }
+    }
+
+    musicBtn.addEventListener("click", toggleMusic);
+
+    // Activates audio when user touches to scroll, clicks, or scrolls the wheel
+    const startMusicOnScrollOrTouch = () => {
+      playAudio();
+      ['touchstart', 'touchend', 'click', 'wheel'].forEach(evt => {
+        window.removeEventListener(evt, startMusicOnScrollOrTouch);
+      });
+    };
+
+    ['touchstart', 'touchend', 'click', 'wheel'].forEach(evt => {
+      window.addEventListener(evt, startMusicOnScrollOrTouch, { passive: true, once: true });
+    });
 
     // AOS initialization with offset
     AOS.init({
