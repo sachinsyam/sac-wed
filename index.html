@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abc & Xyz — Wedding Celebration | January 1, 2027</title>
+
+  <!-- Google Fonts for Editorial Wedding Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons & Animate On Scroll (AOS) via CDN -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --gold-primary: #b89047;
+      --gold-light: #e5cf92;
+      --gold-dark: #8c6827;
+      --sand-bg: #faf7f2;
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --text-main: #222220;
+      --text-muted: #6b6a65;
+      --border-gold: rgba(184, 144, 71, 0.28);
+      --shadow-soft: 0 12px 32px -8px rgba(130, 100, 40, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      background-color: var(--sand-bg);
+      color: var(--text-main);
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(ellipse at 15% 15%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 35%, rgba(184, 144, 71, 0.10) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 75%, rgba(229, 207, 146, 0.14) 0%, transparent 50%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0c3.5 12 12 20.5 24 24-12 3.5-20.5 12-24 24-3.5-12-12-20.5-24-24 12-3.5 20.5-12 24-24zm0 20c1.5 5 5 8.5 10 10-5 1.5-8.5 5-10 10-1.5-5-5-8.5-10-10 5-1.5 8.5-5 10-10z' fill='%23b89047' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E");
+      background-attachment: fixed;
+    }
+
+    /* Fixed border frame on desktop only */
+    @media (min-width: 769px) {
+      body::before, body::after {
+        content: "";
+        position: fixed;
+        pointer-events: none;
+        z-index: 9998;
+      }
+      body::before {
+        top: 10px; left: 10px; right: 10px; bottom: 10px;
+        border: 1px solid rgba(184, 144, 71, 0.35);
+      }
+      body::after {
+        top: 15px; left: 15px; right: 15px; bottom: 15px;
+        border: 1px dashed rgba(184, 144, 71, 0.2);
+      }
+    }
+
+    /* Ambient Background Orbs */
+    .ambient-petals {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .petal {
+      position: absolute;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, rgba(212, 175, 55, 0) 70%);
+      border-radius: 50%;
+      filter: blur(8px);
+      animation: floatOrb 18s infinite ease-in-out alternate;
+    }
+
+    .p1 { width: 220px; height: 220px; top: 5%; left: -30px; }
+    .p2 { width: 200px; height: 200px; top: 60%; right: -30px; animation-duration: 22s; animation-delay: -5s; }
+
+    @keyframes floatOrb {
+      0% { transform: translateY(0) scale(1); opacity: 0.4; }
+      50% { transform: translateY(-25px) scale(1.08); opacity: 0.6; }
+      100% { transform: translateY(20px) scale(0.95); opacity: 0.3; }
+    }
+
+    h1, h2, h3, .font-serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    .font-script {
+      font-family: 'Pinyon Script', cursive;
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 0.85rem 1.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media (min-width: 769px) {
+      nav {
+        justify-content: space-between;
+        padding: 1rem 2rem;
+      }
+    }
+
+    nav .logo {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--gold-dark);
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: none;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    @media (min-width: 769px) {
+      nav ul {
+        display: flex;
+      }
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--gold-primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 5.5rem 1rem 3.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.72rem;
+      color: var(--gold-dark);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 8.5vw, 5.2rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: 0.5px;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.1rem;
+    }
+
+    @media (min-width: 600px) {
+      .hero-title {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+
+    .hero-ampersand {
+      font-size: clamp(2.6rem, 8vw, 4rem);
+      color: var(--gold-primary);
+      line-height: 0.9;
+      margin: 0.2rem 0;
+    }
+
+    .hero-invitation-line {
+      font-size: clamp(1.8rem, 6vw, 2.5rem);
+      color: var(--gold-primary);
+      margin: 0.4rem 0 0.8rem;
+      line-height: 1.2;
+    }
+
+    .hero-date {
+      font-size: clamp(0.9rem, 3.5vw, 1.25rem);
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    /* Countdown Timer */
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto 2.5rem;
+      padding: 0 0.5rem;
+    }
+
+    .countdown-box {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      padding: 0.85rem 0.3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .countdown-num {
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-weight: 400;
+      color: var(--gold-dark);
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1;
+    }
+
+    .countdown-lbl {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    /* Common Section Wrapper */
+    section {
+      padding: 4.5rem 1.2rem;
+      max-width: 980px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.8rem;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1.6rem, 5vw, 2.1rem);
+      color: var(--gold-primary);
+      display: block;
+      margin-bottom: -0.3rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 6vw, 2.9rem);
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .divider {
+      width: 50px;
+      height: 1px;
+      background-color: var(--gold-primary);
+      margin: 1rem auto 0;
+    }
+
+    /* Couple Showcase */
+    .couple-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+    }
+
+    @media (min-width: 650px) {
+      .couple-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    .couple-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-gold);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+      max-width: 420px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .couple-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .couple-card .info {
+      padding: 1.4rem 1rem;
+    }
+
+    .couple-card h3 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--text-main);
+    }
+
+    .couple-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
+    }
+
+    /* Itinerary Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .timeline-item {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      padding: 1.2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .timeline-icon {
+      background: rgba(184, 144, 71, 0.12);
+      color: var(--gold-dark);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .timeline-content h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.15rem;
+      line-height: 1.3;
+    }
+
+    .timeline-time {
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-content p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    /* Venue Card & Map */
+    .venue-box {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-gold);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 820px) {
+      .venue-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .venue-info {
+      padding: 1.8rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    @media (min-width: 820px) {
+      .venue-info {
+        padding: 3rem 2.5rem;
+        text-align: left;
+        align-items: flex-start;
+      }
+    }
+
+    .venue-info h3 {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .venue-address {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--gold-dark);
+      color: #fff;
+      padding: 0.85rem 1.8rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 280px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-primary);
+      transform: translateY(-2px);
+    }
+
+    .venue-map iframe {
+      width: 100%;
+      height: 280px;
+      min-height: 260px;
+      border: 0;
+      display: block;
+    }
+
+    /* Photo Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.65rem;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      border: 1px solid var(--border-gold);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    /* Compact Sticky WhatsApp Button */
+    .wa-sticky {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      z-index: 1000;
+      background: #25d366;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      box-shadow: 0 8px 24px -4px rgba(37, 211, 102, 0.45);
+      transition: all 0.3s ease;
+    }
+
+    .wa-sticky:hover {
+      background: #1eb956;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3.5rem 1.2rem 6rem;
+      border-top: 1px solid var(--border-gold);
+      background: rgba(255, 255, 255, 0.5);
+      position: relative;
+      z-index: 2;
+    }
+
+    footer .quote {
+      font-size: 1.8rem;
+      color: var(--gold-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    footer p {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light Orbs -->
+  <div class="ambient-petals" aria-hidden="true">
+    <span class="petal p1"></span>
+    <span class="petal p2"></span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#" class="logo font-serif">A & X</a>
+    <ul>
+      <li><a href="#couple">The Couple</a></li>
+      <li><a href="#itinerary">Schedule</a></li>
+      <li><a href="#venue">Venue</a></li>
+      <li><a href="#gallery">Moments</a></li>
+      <li><a href="#rsvp">RSVP</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <span class="hero-badge" data-aos="fade-down">Together With Their Families</span>
+    
+    <h1 class="hero-title font-serif" data-aos="zoom-in">
+      <span>Abc</span>
+      <span class="hero-ampersand font-script">&</span>
+      <span>Xyz</span>
+    </h1>
+
+    <p class="hero-invitation-line font-script" data-aos="fade-up">
+      Request the honor of your presence
+    </p>
+
+    <div class="hero-date" data-aos="fade-up">
+      January 01, 2027 &bull; Town Hall
+    </div>
+
+    <!-- Countdown Timer Grid -->
+    <div class="countdown-grid" data-aos="fade-up">
+      <div class="countdown-box"><div class="countdown-num" id="d">00</div><div class="countdown-lbl">Days</div></div>
+      <div class="countdown-box"><div class="countdown-num" id="h">00</div><div class="countdown-lbl">Hours</div></div>
+      <div class="countdown-box"><div class="countdown-num" id="m">00</div><div class="countdown-lbl">Mins</div></div>
+      <div class="countdown-box"><div class="countdown-num" id="s">00</div><div class="countdown-lbl">Secs</div></div>
+    </div>
+
+    <a href="#rsvp" class="btn-gold" data-aos="fade-up">
+      <i data-lucide="mail"></i> Confirm Presence
+    </a>
+  </header>
+
+  <!-- The Couple Section -->
+  <section id="couple">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-subtitle font-script">Two Souls, One Journey</span>
+      <h2 class="section-title">The Bride & Groom</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="couple-container">
+      <!-- Groom Card -->
+      <div class="couple-card" data-aos="fade-up">
+        <img src="https://picsum.photos/id/1062/700/900" alt="Groom portrait" />
+        <div class="info">
+          <h3>Abc</h3>
+          <p>Son of Mr. & Mrs. Groom Family</p>
+        </div>
+      </div>
+
+      <!-- Bride Card -->
+      <div class="couple-card" data-aos="fade-up">
+        <img src="https://picsum.photos/id/64/700/900" alt="Bride portrait" />
+        <div class="info">
+          <h3>Xyz</h3>
+          <p>Daughter of Mr. & Mrs. Bride Family</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Schedule Section -->
+  <section id="itinerary">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-subtitle font-script">Celebrate With Us</span>
+      <h2 class="section-title">Program Itinerary</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-icon"><i data-lucide="sparkles"></i></div>
+        <div class="timeline-content">
+          <div class="timeline-time">10:00 AM – 11:30 AM</div>
+          <h4>The Wedding Ceremony</h4>
+          <p>The auspicious Muhurtham and exchange of garlands at Town Hall Main Auditorium.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-icon"><i data-lucide="utensils"></i></div>
+        <div class="timeline-content">
+          <div class="timeline-time">12:00 PM Onwards</div>
+          <h4>Grand Wedding Feast</h4>
+          <p>Traditional banquet lunch arranged for our esteemed guests and family members.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-icon"><i data-lucide="music"></i></div>
+        <div class="timeline-content">
+          <div class="timeline-time">05:30 PM Onwards</div>
+          <h4>Evening Reception & Toast</h4>
+          <p>An evening filled with music, photographs, and celebration with the newlyweds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue & Directions Section -->
+  <section id="venue">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-subtitle font-script">Location Details</span>
+      <h2 class="section-title">The Wedding Venue</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="venue-box" data-aos="fade-up">
+      <div class="venue-info">
+        <span class="timeline-time">Venue Location</span>
+        <h3>Town Hall</h3>
+        <p class="venue-address">
+          Main Hall Auditorium, Central Junction, City Center.<br>
+          Valet parking & guest assistance available at the main gate.
+        </p>
+        <a href="https://maps.google.com/?q=Town+Hall" target="_blank" class="btn-gold">
+          <i data-lucide="map-pin"></i> Open In Google Maps
+        </a>
+      </div>
+      <div class="venue-map">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15757.771960226499!2d76.657519!3d8.81427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwNDgnNTEuNCJOIDc2wrAzOScyNy4xIkU!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section id="gallery">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-subtitle font-script">Captured Memories</span>
+      <h2 class="section-title">Our Moments</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item" data-aos="fade-up">
+        <img src="https://picsum.photos/id/1025/600/750" alt="Moment 1">
+      </div>
+      <div class="gallery-item" data-aos="fade-up">
+        <img src="https://picsum.photos/id/338/600/750" alt="Moment 2">
+      </div>
+      <div class="gallery-item" data-aos="fade-up">
+        <img src="https://picsum.photos/id/399/600/750" alt="Moment 3">
+      </div>
+      <div class="gallery-item" data-aos="fade-up">
+        <img src="https://picsum.photos/id/838/600/750" alt="Moment 4">
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP Section -->
+  <section id="rsvp" style="text-align: center; max-width: 580px;">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-subtitle font-script">Warm Regards</span>
+      <h2 class="section-title">Are You Attending?</h2>
+      <div class="divider"></div>
+      <p style="color: var(--text-muted); margin-top: 1.2rem; font-size: 0.9rem;">
+        Your presence and prayers will make our celebration truly memorable. Please let us know if you can join us by confirming on WhatsApp.
+      </p>
+      <div style="margin-top: 1.8rem; display: flex; justify-content: center;">
+        <a href="https://wa.me/91XXXXXXXXXX?text=Hi!%20I%20am%20delighted%20to%20confirm%20my%20attendance%20for%20the%20wedding%20of%20Abc%20and%20Xyz%20on%2001-01-2027." class="btn-gold" target="_blank">
+          <i data-lucide="message-circle"></i> Send RSVP
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="quote font-script">"Forever begins here"</div>
+    <p>With blessings from parents, relatives & friends.</p>
+    <p style="margin-top: 0.4rem; font-size: 0.72rem;">Abc & Xyz &bull; 01-01-2027 &bull; Town Hall</p>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/91XXXXXXXXXX?text=Hi!%20I%20would%20love%20to%20RSVP%20for%20the%20wedding%20of%20Abc%20and%20Xyz." class="wa-sticky" target="_blank">
+    <i data-lucide="message-circle"></i>
+    <span>RSVP</span>
+  </a>
+
+  <!-- AOS & Lucide Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    lucide.createIcons();
+
+    // Re-enabled AOS on phones with comfortable offset
+    AOS.init({
+      duration: 700,
+      once: true,
+      offset: 60,
+      easing: 'ease-out-quad'
+    });
+
+    // Recalculate positions after images and fonts load so nothing stays hidden
+    window.addEventListener('load', function() {
+      AOS.refresh();
+    });
+
+    // Countdown Timer
+    const eventTime = new Date("January 1, 2027 10:00:00").getTime();
+    function refreshCountdown() {
+      const now = new Date().getTime();
+      const delta = eventTime - now;
+
+      if (delta > 0) {
+        document.getElementById("d").innerText = String(Math.floor(delta / (1000 * 60 * 60 * 24))).padStart(2, '0');
+        document.getElementById("h").innerText = String(Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+        document.getElementById("m").innerText = String(Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+        document.getElementById("s").innerText = String(Math.floor((delta % (1000 * 60)) / 1000)).padStart(2, '0');
+      }
+    }
+    setInterval(refreshCountdown, 1000);
+    refreshCountdown();
+  </script>
+</body>
+</html>
